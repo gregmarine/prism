@@ -1,0 +1,23 @@
+{
+  "name": "Prism",
+  "version": "0.0.1",
+  "description": "Pyrotechnic Remote Ignition Sequence Manager",
+  "main": "server.js",
+  "dependencies": {
+    "gpio": "^0.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregmarine/prism.git"
+  },
+  "author": "Greg Marine",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/gregmarine/prism/issues"
+  },
+  "homepage": "https://github.com/gregmarine/prism"
+}
