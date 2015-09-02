@@ -4,7 +4,9 @@
   "description": "Pyrotechnic Remote Ignition Sequence Manager",
   "main": "server.js",
   "dependencies": {
-    "gpio": "^0.2.7"
+    "bower": "*",
+    "express": "*",
+    "pi-gpio": "*"
   },
   "devDependencies": {},
   "scripts": {
