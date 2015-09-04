@@ -12,7 +12,7 @@ var server = http.createServer(router);
 // Setup routes
 
 // Calls to trigger relays
-router.all("/relay/:relay", function(req, res)
+router.all("/relay/:relay/:direction", function(req, res)
 {
   console.log("Relay " + req.params.relay + " requested...");
   
@@ -23,7 +23,15 @@ router.all("/relay/:relay", function(req, res)
     
   req.addListener("end", function()
   {
-    relay.activate(req.params.relay, 3000);
+    switch(req.params.direction)
+    {
+      case "activate":
+        relay.activate(req.params.relay, 0);
+        break;
+      case "deactivate":
+        relay.deactivate(req.params.relay);
+        break;
+    }
     
     res.writeHead(200, {"Content-Type": "text/plain"});
     res.end("ok");
