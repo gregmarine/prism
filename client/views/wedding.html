@@ -1,0 +1,101 @@
+<div ng-controller="WeddingCtrl" class="cues" layout-align="center center" ng-cloak>
+  <md-grid-list md-cols="6" md-row-height="2:2">
+    <md-grid-tile md-colspan="2">
+      <div ng-if="audio.currentTime > 0">
+        <h3>Current Time: {{audio.currentTime | trackTime}}</h3>
+        <h3>Next Cue: {{nextCue}} in {{timeToNext}}s</h3>
+      </div>
+    </md-grid-tile>
+    <md-grid-tile md-colspan="2">
+      <img src="images/NCLogo.png" width="96" height="96" ng-click="audio.paused ? audio.play() : audio.pause()"></img>
+    </md-grid-tile>
+    <md-grid-tile md-colspan="2">
+      
+    </md-grid-tile>
+    
+    <md-grid-tile>
+      <md-switch ng-model="cue1" ng-change="triggerCue(cue1, 1)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 1</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue2" ng-change="triggerCue(cue2, 2)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 2</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue3" ng-change="triggerCue(cue3, 3)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 3</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue4" ng-change="triggerCue(cue4, 4)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 4</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue5" ng-change="triggerCue(cue5, 5)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 5</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue6" ng-change="triggerCue(cue6, 6)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 6</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue7" ng-change="triggerCue(cue7, 7)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 7</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue8" ng-change="triggerCue(cue8, 8)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 8</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue9" ng-change="triggerCue(cue9, 9)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 9</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue10" ng-change="triggerCue(cue10, 10)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 10</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue11" ng-change="triggerCue(cue11, 11)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 11</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-switch ng-model="cue12" ng-change="triggerCue(cue12, 12)" ng-disabled="!armed" class="md-warn"></md-switch>
+      
+      <md-grid-tile-footer class="tileFooter">
+        <h3>Cue 12</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

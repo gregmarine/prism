@@ -27,6 +27,7 @@ var Relay = function()
 {
   // GPIO pin to relay mapping array.
   var gpio_relay = [7,11,12,13,15,16,18,22];
+  var relayTimeoutIds = [0,0,0,0,0,0,0,0];
 
   this.activate = function(relay_num, duration)
   {
@@ -39,7 +40,9 @@ var Relay = function()
         
         if(duration > 0)
         {
-          setTimeout(function()
+          clearTimeout(relayTimeoutIds[relay_num - 1]);
+          
+          relayTimeoutIds[relay_num - 1] = setTimeout(function()
           {
             module.exports.deactivate(relay_num);
           }, duration);

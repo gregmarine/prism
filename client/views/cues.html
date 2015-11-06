@@ -1,25 +1,27 @@
-<div layout="row" layout-fill layout-align="top center">
-  <div layout="column" flex>
-    <md-switch ng-model="cue1" ng-change="triggerCue(cue1, 1)" class="md-warn">Cue 1</md-switch>
-    <md-switch ng-model="cue5" ng-change="triggerCue(cue5, 5)" class="md-warn">Cue 5</md-switch>
-    <md-switch ng-model="cue9" ng-change="triggerCue(cue9, 9)" class="md-warn">Cue 9</md-switch>
-  </div>
-  
-  <div layout="column" flex>
-    <md-switch ng-model="cue2" ng-change="triggerCue(cue2, 2)" class="md-warn">Cue 2</md-switch>
-    <md-switch ng-model="cue6" ng-change="triggerCue(cue6, 6)" class="md-warn">Cue 6</md-switch>
-    <md-switch ng-model="cue10" ng-change="triggerCue(cue10, 10)" class="md-warn">Cue 10</md-switch>
-  </div>
-  
-  <div layout="column" flex>
-    <md-switch ng-model="cue3" ng-change="triggerCue(cue3, 3)" class="md-warn">Cue 3</md-switch>
-    <md-switch ng-model="cue7" ng-change="triggerCue(cue7, 7)" class="md-warn">Cue 7</md-switch>
-    <md-switch ng-model="cue11" ng-change="triggerCue(cue11, 11)" class="md-warn">Cue 11</md-switch>
-  </div>
-  
-  <div layout="column" flex>
-    <md-switch ng-model="cue4" ng-change="triggerCue(cue4, 4)" class="md-warn">Cue 4</md-switch>
-    <md-switch ng-model="cue8" ng-change="triggerCue(cue8, 8)" class="md-warn">Cue 8</md-switch>
-    <md-switch ng-model="cue12" ng-change="triggerCue(cue12, 12)" class="md-warn">Cue 12</md-switch>
-  </div>
+<div ng-controller="CuesCtrl as cuesCtrl" ng-cloak>
+  <md-tabs class="cueTabs">
+    <md-tab label="Manual">
+      <div class="cues">
+        <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-lg="4" md-cols-gt-lg="6"
+          md-row-height-gt-md="1:1" md-row-height="1:1"
+          md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+          <md-grid-tile
+            ng-repeat="cue in cuesCtrl.cues">
+            <md-switch ng-model="cue.name" ng-change="triggerCue(cue.name, cue.cue_num)" ng-disabled="!armed" class="md-warn"></md-switch>
+            <md-grid-tile-footer><h3>{{ cue.title }}</h3></md-grid-tile-footer>
+          </md-grid-tile>
+        </md-grid-list>
+      </div>
+    </md-tab>
+    <md-tab label="Automatic">
+      <div class="auto">
+        <md-list-item class="md-2-line" ng-repeat="script in scriptList" ng-click="openScript(script.id)">
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ script.name }}</h3>
+            <p>{{ script.description }}</p>
+          </div>
+        </md-list-item>
+      </div>
+    </md-tab>
+  </md-tabs>
 </div>

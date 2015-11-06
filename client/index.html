@@ -3,37 +3,41 @@
   <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/styles/prism.css">
     
-    <title>Prism</title>
-    
-    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-material/angular-material.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
-    
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/controllers.js"></script>
+    <title>PRISM</title>
   </head>
   <body ng-app="prismApp">
-    <div ng-controller="AppCtrl" layout="row">
-      <section layout="column" flex>
+    <div ng-controller="AppCtrl" layout="column" class="app" ng-keydown="deadMan($event, true)" ng-keyup="deadMan($event, false)">
+      <section layout="column">
         <md-toolbar>
-          <div class="md-toolbar-tools">
-            <span>Prism</span>
+          <div class="md-toolbar-tools" ng-cloak>
+            <span>PRISM</span>
             <span flex></span>
             {{ armedState }}
             <md-switch ng-model="armed" ng-change="arm(armed)" class="md-warn"></md-switch>
           </div>
         </md-toolbar>
-        
+      </section>
+      <section layout="column" flex>
         <md-content flex layout-padding>
-          <div layout="column" layout-fill layout-align="top center">
+          <div layout="column" layout-fill layout-align="center center">
             <ng-view></ng-view>
           </div>
           <div flex></div>
         </md-content>
       </section>
     </div>
+    
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-audio/app/angular.audio.js"></script>
+    
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/services.js"></script>
+    <script type="text/javascript" src="/scripts/controllers.js"></script>
   </body>
 </html>

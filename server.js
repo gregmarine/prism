@@ -3,7 +3,8 @@ var http = require("http"),
   express = require("express"),
   path = require("path"),
   relay = require("./relay"),
-  cue = require("./cue");
+  cue = require("./cue"),
+  scripts = require("./script");
 
 // Server Objects
 var router = express();
@@ -18,7 +19,7 @@ router.all("/relay/:relay/:direction", function(req, res)
   
   var postData = "";
   req.addListener("data", function(postDataChunk) {
-      postData += postDataChunk;
+    postData += postDataChunk;
   });
     
   req.addListener("end", function()
@@ -54,6 +55,48 @@ router.all("/cue/:cue", function(req, res)
     
     res.writeHead(200, {"Content-Type": "text/plain"});
     res.end("ok");
+  });
+});
+
+// List PRISM scripts
+router.all("/script", function(req, res)
+{
+  console.log("Script list requested...");
+  
+  var postData = "";
+  req.addListener("data", function(postDataChunk) {
+      postData += postDataChunk;
+  });
+
+  req.addListener("end", function()
+  {
+    scripts.listScripts(function(err, scripts)
+    {
+      res.writeHead(200, {"Content-Type": "application/json"});
+      res.write(JSON.stringify(scripts));
+      res.end("");
+    });
+  });
+});
+
+// Load a PRISM script identified by the specified id
+router.all("/script/:id", function(req, res)
+{
+  console.log("Script " + req.params.id + " requested...");
+  
+  var postData = "";
+  req.addListener("data", function(postDataChunk) {
+      postData += postDataChunk;
+  });
+
+  req.addListener("end", function()
+  {
+    scripts.loadScript(req.params.id, function(err, script)
+    {
+      res.writeHead(200, {"Content-Type": "application/json"});
+      res.write(JSON.stringify(script));
+      res.end("");
+    });
   });
 });
 
